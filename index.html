@@ -11,13 +11,54 @@
 
 </head>
 
+<style>
+    body {
+    background-color: rgb(53, 50, 167);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    }
+
+    .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    }
+
+    .content {
+    text-align: center;
+    }
+
+    h1 {
+    font-size: 48px;
+    color: rgb(255, 255, 255);
+    margin: 0;
+    }
+
+    p {
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    }
+</style>
+
 <body>
-    <div id="app">Loading...</div>
+    <div id="app">
+        <div class="container">
+            <div class="content">
+                <p>Loading...</p>
+            </div>
+        </div>
+    </div>
 
     <div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="" class="reload">Reload</a>
-        <a class="dismiss">🗙</a>
+        <div class="container">
+            <div class="content">
+                <p>An unhandled error has occurred.</p>
+                <p>We apologise for the inconvenience. Please try again later.</p>
+            </div>
+        </div>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
     <script src="_content/MudBlazor/MudBlazor.min.js"></script>
@@ -38,16 +79,17 @@
             };
     };
 
-    (function(l) {
-    if (l.search[1] === '/' ) {
-        var decoded = l.search.slice(1).split('&').map(function(s) { 
-        return s.replace(/~and~/g, '&')
-        }).join('?');
-        window.history.replaceState(null, null,
-            l.pathname.slice(0, -1) + decoded + l.hash
-        );
-    }
-}(window.location))
+    (function (l) {
+        if (l.search[1] === '/') {
+            var decoded = l.search.slice(1).split('&').map(function (s) {
+                return s.replace(/~and~/g, '&')
+            }).join('?');
+            window.history.replaceState(null, null,
+                l.pathname.slice(0, -1) + decoded + l.hash
+            );
+        }
+    }(window.location))
 </script>
+
 
 </html>
